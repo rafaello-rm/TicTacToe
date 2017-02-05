@@ -11,7 +11,7 @@ $(document).ready(function () {
     setInterval(refreshBoardFromServer, 1000);
     setInterval(refreshPlayersFromServer, 1000);
     checkWin = setInterval(checkPlayersWin, 1000);
-    console.log(checkWin);
+    //console.log(checkWin);
 
 });
 function resetModel() {
