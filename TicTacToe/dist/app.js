@@ -8,8 +8,8 @@ $(document).ready(function () {
     $("#logged").hide();
     $("#leftPlayerButton").attr("disabled", true);
     $("#rightPlayerButton").attr("disabled", true);
-    setInterval(refreshBoardFromServer, 1000);
-    setInterval(refreshPlayersFromServer, 1000);
+    setInterval(refreshBoardFromServer, 400);
+    setInterval(refreshPlayersFromServer, 400);
     checkWin = setInterval(checkPlayersWin, 1000);
     console.log(checkWin);
 
@@ -58,6 +58,12 @@ function logOut() {
     $("#leftPlayerButton").attr("disabled", true);
     $("#rightPlayerButton").attr("disabled", true);
     loginUser = "";
+}
+function resetButton() {
+    $.ajax({
+        url: "http://localhost:50795/reset.ashx"
+    })
+    checkWin = setInterval(checkPlayersWin, 1000);
 }
 function leftPlayerClick() {
     $.ajax({
@@ -109,7 +115,7 @@ function refreshBoard() {
     }
 }
 function onGetBoardSuccess(data) {
-    console.log(data);
+    //console.log(data);
     boardModel = data.split(";");
     refreshBoard();
 }
@@ -131,7 +137,7 @@ function onGetPlayersSuccess(data) {
     playersOnGame = data.split(";");
     $("#leftPlayerButton").attr("value", playersOnGame[0]);
     $("#rightPlayerButton").attr("value", playersOnGame[1]);
-    console.log(data);
+    //console.log(data);
 }
 function checkPlayersWin() {
     $.ajax({

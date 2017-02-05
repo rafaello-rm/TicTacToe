@@ -17,6 +17,7 @@ namespace TicTacToe
             {
                 TicTacToeModel.Model[i] = ' ';
             }
+            TicTacToeModel.LastClickPlayer = "";
             context.Response.ContentType = "text/plain";
             //context.Response.Write("Hello World");
         }
