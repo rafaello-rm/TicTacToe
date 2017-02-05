@@ -1,0 +1,38 @@
+﻿.padding {
+    padding-left: 110px;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 100px;
+}
+.padding2 {
+    padding-left: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.player {
+    width: 200px;
+    border: solid 1px;
+}
+.leftPlayerButton {
+    width: 100%;
+    background-color: green;
+}
+.rightPlayerButton {
+    width: 100%;
+    background-color: darkorange;
+}
+.board {
+    border: solid 1px;
+}
+.boardCell {
+    width: 50px;
+    height: 50px;
+    border: dotted 1px;
+}
+.boardCellGreen {
+    background-color: green;
+}
+.boardCellOrange {
+    background-color: darkorange;
+}

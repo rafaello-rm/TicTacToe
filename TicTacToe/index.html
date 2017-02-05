@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="dist/app.css" rel="stylesheet" />
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/app.js"></script>
+    <title>TicTacToe</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div class="padding"> <input type="button" value="Login" onclick="loginClick()" /></div>
+    <div id="userLogged"></div>
+    <div id="loginDialog">
+        <div>
+            user name:
+            <input type="text" id="name" />
+        </div>
+        <div>
+            password:
+            <input type="password" id="password" />
+        </div>
+        <input type="button" value="zaloguj" onclick="logIn()" />
+    </div>
+    <div id="logged">
+        <p id="loggedUser">
+        </p>
+        <input type="button" value="wyloguj" onclick="logOut()" />
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <div class="player">
+                        <input id="leftPlayerButton" class="leftPlayerButton" type="button" onclick="leftPlayerClick()" />
+                    </div>
+                </td>
+                <td>
+                    <div class="board">
+                        <table>
+                            <tr>
+                                <td> <div id="board11" class="boardCell" onclick="clickCell(1,1)"> </div> </td>
+                                <td> <div id="board12" class="boardCell" onclick="clickCell(1,2)"> </div> </td>
+                                <td> <div id="board13" class="boardCell" onclick="clickCell(1,3)"> </div> </td>
+                                <td> <div id="board14" class="boardCell" onclick="clickCell(1,4)"> </div> </td>
+                                <td> <div id="board15" class="boardCell" onclick="clickCell(1,5)"> </div> </td>
+                            </tr>
+                            <tr>
+                                <td> <div id="board21" class="boardCell" onclick="clickCell(2,1)"> </div> </td>
+                                <td> <div id="board22" class="boardCell" onclick="clickCell(2,2)"> </div> </td>
+                                <td> <div id="board23" class="boardCell" onclick="clickCell(2,3)"> </div> </td>
+                                <td> <div id="board24" class="boardCell" onclick="clickCell(2,4)"> </div> </td>
+                                <td> <div id="board25" class="boardCell" onclick="clickCell(2,5)"> </div> </td>
+                            </tr>
+                            <tr>
+                                <td> <div id="board31" class="boardCell" onclick="clickCell(3,1)"> </div> </td>
+                                <td> <div id="board32" class="boardCell" onclick="clickCell(3,2)"> </div> </td>
+                                <td> <div id="board33" class="boardCell" onclick="clickCell(3,3)"> </div> </td>
+                                <td> <div id="board34" class="boardCell" onclick="clickCell(3,4)"> </div> </td>
+                                <td> <div id="board35" class="boardCell" onclick="clickCell(3,5)"> </div> </td>
+                            </tr>
+                            <tr>
+                                <td> <div id="board41" class="boardCell" onclick="clickCell(4,1)"> </div> </td>
+                                <td> <div id="board42" class="boardCell" onclick="clickCell(4,2)"> </div> </td>
+                                <td> <div id="board43" class="boardCell" onclick="clickCell(4,3)"> </div> </td>
+                                <td> <div id="board44" class="boardCell" onclick="clickCell(4,4)"> </div> </td>
+                                <td> <div id="board45" class="boardCell" onclick="clickCell(4,5)"> </div> </td>
+                            </tr>
+                            <tr>
+                                <td> <div id="board51" class="boardCell" onclick="clickCell(5,1)"> </div> </td>
+                                <td> <div id="board52" class="boardCell" onclick="clickCell(5,2)"> </div> </td>
+                                <td> <div id="board53" class="boardCell" onclick="clickCell(5,3)"> </div> </td>
+                                <td> <div id="board54" class="boardCell" onclick="clickCell(5,4)"> </div> </td>
+                                <td> <div id="board55" class="boardCell" onclick="clickCell(5,5)"> </div> </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td>
+
+                    <div class="player">
+                        <input id="rightPlayerButton" class="rightPlayerButton" type="button" onclick="rightPlayerClick()" />
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+
+        
+    </div>
+</body>
+</html>

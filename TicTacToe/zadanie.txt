@@ -1,0 +1,7 @@
+﻿1. Ma wyświetlać graczy na krzesełkach
+2. Drugi gracz ma inny kolor
+2a Serwer zwraca 0 jak kliknął nie ten gracz (i komunikat w JS)
+3. Klikac może tylko gracz który ma ruch
+4. Obserwator nie może klikać (nie zalogowany)
+5. Musi ogłosić zwyciestwo.
+6. 
