@@ -1,17 +1,19 @@
-﻿var loginModel = {};
+﻿var gameModel = {};
+var loginModel = {};
 var loginUser = "";
 var boardModel = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 var playersOnGame = ["", ""];
-var checkWin;
+var refreshGameModel;
 $(document).ready(function () {
     $("#loginDialog").hide();
     $("#logged").hide();
     $("#leftPlayerButton").attr("disabled", true);
     $("#rightPlayerButton").attr("disabled", true);
-    setInterval(refreshBoardFromServer, 400);
-    setInterval(refreshPlayersFromServer, 400);
-    checkWin = setInterval(checkPlayersWin, 1000);
-    console.log(checkWin);
+    refreshGameModel = setInterval(getModel, 300);
+    //setInterval(refreshBoardFromServer, 400);
+    //setInterval(refreshPlayersFromServer, 400);
+    //checkWin = setInterval(checkPlayersWin, 1000);
+    //console.log(checkWin);
 
 });
 function resetModel() {
@@ -63,7 +65,36 @@ function resetButton() {
     $.ajax({
         url: "http://localhost:50795/reset.ashx"
     })
-    checkWin = setInterval(checkPlayersWin, 1000);
+    refreshGameModel = setInterval(getModel, 300);
+}
+function getModel() {
+    $.ajax({
+        url: "http://localhost:50795/getModel.ashx",
+        success: onSuccess,
+    })
+}
+function onSuccess(data) {
+    gameModel = data;
+    refreshGame();
+}
+function refreshGame() {
+    refreshBoardFromGameModel();
+    refreshPlayers();
+    refreshWinPlayer();
+}
+function refreshBoardFromGameModel() {
+    boardModel = gameModel.Board;
+    refreshBoard();
+}
+function refreshPlayers() {
+    $("#leftPlayerButton").attr("value", gameModel.Lplayer);
+    $("#rightPlayerButton").attr("value", gameModel.Rplayer);
+}
+function refreshWinPlayer() {
+    if (gameModel.WinPlayer != null) {
+        alert("Wygrał gracz " + gameModel.WinPlayer);
+        clearInterval(refreshGameModel);
+    }
 }
 function leftPlayerClick() {
     $.ajax({

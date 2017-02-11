@@ -133,6 +133,7 @@
     <Compile Include="checkPlayersWin.ashx.cs">
       <DependentUpon>checkPlayersWin.ashx</DependentUpon>
     </Compile>
+    <Compile Include="GameModel.cs" />
     <Compile Include="getBoard.ashx.cs">
       <DependentUpon>getBoard.ashx</DependentUpon>
     </Compile>
