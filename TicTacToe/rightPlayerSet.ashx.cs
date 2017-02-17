@@ -16,14 +16,14 @@ namespace TicTacToe
             var response = "";
             if (TicTacToeModel.RightPlayer == "") {
                 if (context.Request.Params["rightPlayer"] == TicTacToeModel.LeftPlayer) {
-                    response = "Dołączyłeś już do gry jako gracz zielony";
+                    response = "YouAreGreen";
                 } else {
                     TicTacToeModel.RightPlayer = context.Request.Params["rightPlayer"];
-                    response = "Dołączyłeś do gry jako gracz pomarańczowy";
+                    response = "joinOrange";
                 }
                 
             } else {
-                response = "Ten kolor jest już zajęty";
+                response = "colorBusy";
             }
 
             context.Response.ContentType = "text/plain";

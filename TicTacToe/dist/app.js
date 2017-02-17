@@ -1,9 +1,50 @@
 ﻿var gameModel = {};
 var loginModel = {};
+var loginResponse = "";
 var loginUser = "";
 var boardModel = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 var playersOnGame = ["", ""];
 var refreshGameModel;
+
+var en = i18n.create({
+    values: {
+        "loginButton": "login", "title": "Tic Tac Toe", "nameLbl": "user name: ", "passwordLbl": "password",
+        "signInButton": "sign in", "logOutButton": "log Out", "resetButton": "start/reset",
+        "loginError": "incorrect username or password", "onLine": "online: ", "wonPlayer": "Won player ",
+        "Congratulations": ". Congratulations!", "YouAreOrange": "You are already in the game as a player orange",
+        "joinGreen": "You joined the game as a player green", "YouAreGreen": "You are already in the game as a player green",
+        "joinOrange": "You joined the game as a player orange", "colorBusy": "This color is already busy",
+        "mustLoginAndJoin": "you must first log in and join the game", "mustJoin": "you must first join the game",
+        "wait": "wait for his move", "areaOccupied": "this area is already occupied"
+    }
+})
+var pl = i18n.create({
+    values: {
+        "loginButton": "logowanie", "title": "Kółko i Krzyżyk", "nameLbl": "nazwa użytkownika: ", "passwordLbl": "hasło",
+        "signInButton": "zaloguj", "logOutButton": "wyloguj", "resetButton": "rozpocznij/kasuj",
+        "loginError": "niepoprawna nazwa użytkowanika lub hasło", "onLine": "zalogowany: ", "wonPlayer": "Wygrał gracz ",
+        "Congratulations": ". Gratulacje!", "YouAreOrange": "Dołączyłeś już do gry jako gracz pomarańczowy",
+        "joinGreen": "Dołączyłeś do gry jako gracz zielony", "YouAreGreen": "Dołączyłeś już do gry jako gracz zielony",
+        "joinOrange": "Dołączyłeś do gry jako gracz pomarańczowy", "colorBusy": "Ten kolor jest już zajęty",
+        "mustLoginAndJoin": "trzeba się najpierw zalogować i dołączyć do gry", "mustJoin": "musisz najpierw dołączyć do gry",
+        "wait": "zaczekaj na swój ruch", "areaOccupied": "to pole jest już zajęte"
+    }
+})
+var es = i18n.create({
+    values: {
+        "loginButton": "login", "title": "Tic Tac Toe", "nameLbl": "nombre de usuario: ", "passwordLbl": "contraseña",
+        "signInButton": "iniciar la sesión", "logOutButton": "log", "resetButton": "iniciar / borrar",
+        "loginError": "nombre de usuario o contraseña incorrecta", "onLine": "en línea: ", "wonPlayer": "ganó el jugador ",
+        "Congratulations": ". Felicitaciones!", "YouAreOrange": "Ya estás en el juego como un jugador de naranja",
+        "joinGreen": "Que se unió al juego como un jugador verde", "YouAreGreen": "Ya estás en el juego como un jugador verde",
+        "joinOrange": "Que se unió al juego como un jugador de naranja", "colorBusy": "Este color ya está ocupado",
+        "mustLoginAndJoin": "primero debe iniciar sesión en el juego y unirse", "mustJoin": "que primero debe unirse al juego",
+        "wait": "esperar a que su movimiento", "areaOccupied": "Esta área ya está ocupado"
+    }
+})
+var lang = pl;
+
+
 $(document).ready(function () {
     $("#loginDialog").hide();
     $("#logged").hide();
@@ -16,13 +57,28 @@ $(document).ready(function () {
     //console.log(checkWin);
 
 });
+function refreshLang(data) {
+    lang = data;
+    $("#loginButton").attr("value", lang("loginButton"));
+    $("#title").html(lang("title"));
+    $("#nameLbl").html(lang("nameLbl"));
+    $("#passwordLbl").html(lang("passwordLbl"));
+    $("#signInButton").attr("value", lang("signInButton"));
+    $("#logOutButton").attr("value", lang("logOutButton"));
+    $("#resetButton").attr("value", lang("resetButton"));
+    if (loginResponse != "loginError") {
+        $("#loggedUser").html(lang("onLine") + loginUser);
+    } else {
+        $("#loggedUser").html(lang(loginResponse));
+    }
+
+}
 function resetModel() {
     loginModel.userName = "";
     loginModel.userPassword = "";
     }
 function loginClick() {
-    $("#loginDialog").show();
-    
+    $("#loginDialog").show();    
 }
 function errorResponse() {
     alert("serwer nie odpowiedział");
@@ -38,16 +94,16 @@ function logIn() {
 function refreshUserLogged(data) {
     var divUserLogged = $("#userLogged");
     $("#logged").show();
-    
-    loginUser = data;
-    if (data != "niepoprawna nazwa użytkownika lub hasło") {
+    loginResponse = data;
+    if (data != "loginError") {
+        loginUser = loginResponse;
         $("#loginDialog").hide();
-        $("#loggedUser").html("zalogowany: " + data);
+        $("#loggedUser").html(lang("onLine") + loginUser);
         $("#leftPlayerButton").attr("disabled", false);
         $("#rightPlayerButton").attr("disabled", false);
     }
     else {
-        $("#loggedUser").html(data);
+        $("#loggedUser").html(lang(loginResponse));
     }
 }
 function refreshLoginModel() {
@@ -92,7 +148,7 @@ function refreshPlayers() {
 }
 function refreshWinPlayer() {
     if (gameModel.WinPlayer != null) {
-        alert("Wygrał gracz " + gameModel.WinPlayer);
+        alert(lang("wonPlayer") + gameModel.WinPlayer + lang("Congratulations"));
         clearInterval(refreshGameModel);
     }
 }
@@ -104,7 +160,7 @@ function leftPlayerClick() {
     })
 }
 function onLeftPlayerSuccess(data) {
-    alert(data);
+    alert(lang(data));
 }
 function rightPlayerClick() {
     $.ajax({
@@ -114,7 +170,7 @@ function rightPlayerClick() {
     })
 }
 function onRightPlayerSuccess(data) {
-    alert(data);
+    alert(lang(data));
 }
 function clickCell(row, col) {
     var index = (5 * (row - 1) + col);
@@ -126,7 +182,7 @@ function clickCell(row, col) {
 }
 function onPlayerClickSuccess(data) {
     if (data != "") {
-        alert(data);
+        alert(lang(data));
     }
 }
 function refreshBoard() {
@@ -143,42 +199,5 @@ function refreshBoard() {
                 $("#board" + row + col).removeClass("boardCellOrange");
             }
         }
-    }
-}
-function onGetBoardSuccess(data) {
-    //console.log(data);
-    boardModel = data.split(";");
-    refreshBoard();
-}
-function refreshBoardFromServer() {
-    $.ajax({
-        url: "http://localhost:50795/getBoard.ashx",
-        success: onGetBoardSuccess,
-
-    })
-}
-function refreshPlayersFromServer() {
-    $.ajax({
-        url: "http://localhost:50795/getPlayers.ashx",
-        success: onGetPlayersSuccess,
-
-    })
-}
-function onGetPlayersSuccess(data) {
-    playersOnGame = data.split(";");
-    $("#leftPlayerButton").attr("value", playersOnGame[0]);
-    $("#rightPlayerButton").attr("value", playersOnGame[1]);
-    //console.log(data);
-}
-function checkPlayersWin() {
-    $.ajax({
-        url: "http://localhost:50795/checkPlayersWin.ashx",
-        success: onCheckPlayersWin,
-    })
-}
-function onCheckPlayersWin(data) {
-    if (data != "") {
-        alert(data);
-        clearInterval(checkWin);
     }
 }

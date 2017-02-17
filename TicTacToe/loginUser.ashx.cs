@@ -22,17 +22,17 @@ namespace TicTacToe
                 context.Response.Write(user);
             } else
             {
-                context.Response.Write("niepoprawna nazwa użytkownika lub hasło");
+                context.Response.Write("loginError");
             }
             
         }
 
         public bool canBeLoggedIn(string user, string password)
         {
-            if (user == "Rafał" & password == "123")
+            if (user == "rafaello" & password == "123")
                 return true;
             else
-                if (user == "Krzysztof" & password == "123")
+                if (user == "araszek" & password == "123")
                 return true;
             else
                 if (user == "nika" & password == "123")

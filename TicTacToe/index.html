@@ -3,28 +3,36 @@
 <head>
     <link href="dist/app.css" rel="stylesheet" />
     <script src="dist/jquery.min.js"></script>
+    <script src="dist/i18n.min.js"></script>
     <script src="dist/app.js"></script>
     <title>TicTacToe</title>
     <meta charset="utf-8" />
 </head>
 <body>
-    <div class="padding"> <input type="button" value="Login" onclick="loginClick()" /></div>
-    <div id="userLogged"></div>
+    <div>
+        <label><input type="radio" name="language" checked onclick="refreshLang(pl)"/> pl </label>
+        <label><input type="radio" name="language" onclick="refreshLang(en)"/> en </label>
+        <label><input type="radio" name="language" onclick="refreshLang(es)" /> es </label>
+    </div>
+    <div id="title" class="title">Kółko i Krzyżyk</div>
+    <div class="padding"> <input id="loginButton" type="button" value="logowanie" onclick="loginClick()" /> </div>
     <div id="loginDialog">
         <div>
-            user name:
+            <label id="nameLbl"> nazwa użytkownika: </label>
             <input type="text" id="name" />
         </div>
         <div>
-            password:
+            <label id="passwordLbl"> hasło: </label>
             <input type="password" id="password" />
         </div>
-        <input type="button" value="zaloguj" onclick="logIn()" />
+        <input id="signInButton" type="button" value="zaloguj" onclick="logIn()" />
     </div>
     <div id="logged">
         <p id="loggedUser">
         </p>
-        <input type="button" value="wyloguj" onclick="logOut()" /> <input type="button" value="reset gry" onclick="resetButton()" />
+        <p id="userLogged">
+        </p>
+        <input id="logOutButton" type="button" value="wyloguj" onclick="logOut()" /> <input id="resetButton" type="button" value="rozpocznij/kasuj" onclick="resetButton()" />
     </div>
     <div>
         <table>

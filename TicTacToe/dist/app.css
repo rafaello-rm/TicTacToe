@@ -1,8 +1,12 @@
-﻿.padding {
-    padding-left: 110px;
+﻿.title {
+    text-align: center;
+    font-size-adjust: 1;
+}
+.padding {
+    padding-left: 80px;
     padding-top: 0px;
     margin-top: 0px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
 }
 .padding2 {
     padding-left: 0px;

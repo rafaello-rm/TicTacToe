@@ -106,11 +106,8 @@
     </Content>
     <Content Include="loginUser.ashx" />
     <Content Include="playerClick.ashx" />
-    <Content Include="getBoard.ashx" />
     <Content Include="leftPlayerSet.ashx" />
     <Content Include="rightPlayerSet.ashx" />
-    <Content Include="getPlayers.ashx" />
-    <Content Include="checkPlayersWin.ashx" />
     <Content Include="reset.ashx" />
     <Content Include="getModel.ashx" />
     <None Include="Web.Debug.config">
@@ -130,18 +127,9 @@
     <Content Include="zadanie.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="checkPlayersWin.ashx.cs">
-      <DependentUpon>checkPlayersWin.ashx</DependentUpon>
-    </Compile>
     <Compile Include="GameModel.cs" />
-    <Compile Include="getBoard.ashx.cs">
-      <DependentUpon>getBoard.ashx</DependentUpon>
-    </Compile>
     <Compile Include="getModel.ashx.cs">
       <DependentUpon>getModel.ashx</DependentUpon>
-    </Compile>
-    <Compile Include="getPlayers.ashx.cs">
-      <DependentUpon>getPlayers.ashx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

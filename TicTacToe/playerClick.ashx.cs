@@ -21,15 +21,19 @@ namespace TicTacToe
             context.Response.ContentType = "text/plain";
 
             if (playerClick == "") {
-                context.Response.Write("trzeba się najpierw zalogować i dołączyć do gry");
+                context.Response.Write("mustLoginAndJoin");
             } else
             {
+                if (playerClick != "" && playerClick != TicTacToeModel.LeftPlayer && playerClick != TicTacToeModel.RightPlayer)
+                {
+                    context.Response.Write("mustJoin");
+                }
                 if (playerClick == TicTacToeModel.LeftPlayer) {
                     if (playerClick == TicTacToeModel.LastClickPlayer) {
-                        context.Response.Write("zaczekaj na swój ruch");
+                        context.Response.Write("wait");
                     } else {
                         if (TicTacToeModel.Model[intIndex - 1] != ' ') {
-                            context.Response.Write("pole jest już zajęte");
+                            context.Response.Write("areaOccupied");
                         } else {
                             TicTacToeModel.Model[intIndex - 1] = 'g';
                             TicTacToeModel.LastClickPlayer = playerClick;
@@ -39,17 +43,17 @@ namespace TicTacToe
                 }
                 if (playerClick == TicTacToeModel.RightPlayer) {
                     if (playerClick == TicTacToeModel.LastClickPlayer) {
-                        context.Response.Write("zaczekaj na swój ruch");
+                        context.Response.Write("wait");
                     } else {
                         if (TicTacToeModel.Model[intIndex - 1] != ' ') {
-                            context.Response.Write("pole jest już zajęte");
+                            context.Response.Write("areaOccupied");
                         }
                         else {
                             TicTacToeModel.Model[intIndex - 1] = 'o';
                             TicTacToeModel.LastClickPlayer = playerClick;
                         }
                     }
-                } 
+                }
             }
             
             
