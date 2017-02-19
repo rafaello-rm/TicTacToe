@@ -12,5 +12,6 @@ namespace TicTacToe
         public string Rplayer { get; set; }
         public string LastClickPlayer { get; set; }
         public string WinPlayer { get; set; }
+        public int BoardSize { get; set; }
     }
 }

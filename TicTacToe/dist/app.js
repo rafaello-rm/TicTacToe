@@ -2,44 +2,49 @@
 var loginModel = {};
 var loginResponse = "";
 var loginUser = "";
-var boardModel = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+var boardSize = 5;
+var boardModel = new Array(boardSize * boardSize);
 var playersOnGame = ["", ""];
 var refreshGameModel;
+var winAlerted = false;
 
 var en = i18n.create({
     values: {
         "loginButton": "login", "title": "Tic Tac Toe", "nameLbl": "user name: ", "passwordLbl": "password",
-        "signInButton": "sign in", "logOutButton": "log Out", "resetButton": "start/reset",
+        "signInButton": "sign in", "logOutButton": "log Out", "resetButton": "start/reset", "boardSizeLbl": "board size",
+        "numberForWinLbl": "number for Win",
         "loginError": "incorrect username or password", "onLine": "online: ", "wonPlayer": "Won player ",
         "Congratulations": ". Congratulations!", "YouAreOrange": "You are already in the game as a player orange",
         "joinGreen": "You joined the game as a player green", "YouAreGreen": "You are already in the game as a player green",
         "joinOrange": "You joined the game as a player orange", "colorBusy": "This color is already busy",
         "mustLoginAndJoin": "you must first log in and join the game", "mustJoin": "you must first join the game",
-        "wait": "wait for his move", "areaOccupied": "this area is already occupied"
+        "wait": "wait for his move", "areaOccupied": "this area is already occupied", "serverNotResponsed": "server not responsed"
     }
 })
 var pl = i18n.create({
     values: {
         "loginButton": "logowanie", "title": "Kółko i Krzyżyk", "nameLbl": "nazwa użytkownika: ", "passwordLbl": "hasło",
-        "signInButton": "zaloguj", "logOutButton": "wyloguj", "resetButton": "rozpocznij/kasuj",
+        "signInButton": "zaloguj", "logOutButton": "wyloguj", "resetButton": "rozpocznij/kasuj", "boardSizeLbl": "rozmiar planszy",
+        "numberForWinLbl": "liczba do wygranej",
         "loginError": "niepoprawna nazwa użytkowanika lub hasło", "onLine": "zalogowany: ", "wonPlayer": "Wygrał gracz ",
         "Congratulations": ". Gratulacje!", "YouAreOrange": "Dołączyłeś już do gry jako gracz pomarańczowy",
         "joinGreen": "Dołączyłeś do gry jako gracz zielony", "YouAreGreen": "Dołączyłeś już do gry jako gracz zielony",
         "joinOrange": "Dołączyłeś do gry jako gracz pomarańczowy", "colorBusy": "Ten kolor jest już zajęty",
         "mustLoginAndJoin": "trzeba się najpierw zalogować i dołączyć do gry", "mustJoin": "musisz najpierw dołączyć do gry",
-        "wait": "zaczekaj na swój ruch", "areaOccupied": "to pole jest już zajęte"
+        "wait": "zaczekaj na swój ruch", "areaOccupied": "to pole jest już zajęte", "serverNotResponsed": "serwer nie odpowiedział"
     }
 })
 var es = i18n.create({
     values: {
         "loginButton": "login", "title": "Tic Tac Toe", "nameLbl": "nombre de usuario: ", "passwordLbl": "contraseña",
-        "signInButton": "iniciar la sesión", "logOutButton": "log", "resetButton": "iniciar / borrar",
+        "signInButton": "iniciar la sesión", "logOutButton": "log", "resetButton": "iniciar / borrar", "boardSizeLbl": "tamaño del tablero",
+        "numberForWinLbl": "Número de ganar",
         "loginError": "nombre de usuario o contraseña incorrecta", "onLine": "en línea: ", "wonPlayer": "ganó el jugador ",
         "Congratulations": ". Felicitaciones!", "YouAreOrange": "Ya estás en el juego como un jugador de naranja",
         "joinGreen": "Que se unió al juego como un jugador verde", "YouAreGreen": "Ya estás en el juego como un jugador verde",
         "joinOrange": "Que se unió al juego como un jugador de naranja", "colorBusy": "Este color ya está ocupado",
         "mustLoginAndJoin": "primero debe iniciar sesión en el juego y unirse", "mustJoin": "que primero debe unirse al juego",
-        "wait": "esperar a que su movimiento", "areaOccupied": "Esta área ya está ocupado"
+        "wait": "esperar a que su movimiento", "areaOccupied": "Esta área ya está ocupado", "serverNotResponsed": "Servidor no respondió"
     }
 })
 var lang = pl;
@@ -66,6 +71,8 @@ function refreshLang(data) {
     $("#signInButton").attr("value", lang("signInButton"));
     $("#logOutButton").attr("value", lang("logOutButton"));
     $("#resetButton").attr("value", lang("resetButton"));
+    $("#boardSizeLbl").html(lang("boardSizeLbl"));
+    $("#numberForWinLbl").html(lang("numberForWinLbl"));
     if (loginResponse != "loginError") {
         $("#loggedUser").html(lang("onLine") + loginUser);
     } else {
@@ -81,7 +88,7 @@ function loginClick() {
     $("#loginDialog").show();    
 }
 function errorResponse() {
-    alert("serwer nie odpowiedział");
+    alert(lang("serverNotResponsed"));
 }
 function logIn() {
     refreshLoginModel();
@@ -92,7 +99,6 @@ function logIn() {
     })
 }
 function refreshUserLogged(data) {
-    var divUserLogged = $("#userLogged");
     $("#logged").show();
     loginResponse = data;
     if (data != "loginError") {
@@ -117,11 +123,12 @@ function logOut() {
     $("#rightPlayerButton").attr("disabled", true);
     loginUser = "";
 }
-function resetButton() {
+function resetBoard() {
+    var newBoardSize = $("#boardSize").val();
+    var newNumberForWin = $("#numberForWin").val();
     $.ajax({
-        url: "http://localhost:50795/reset.ashx"
+        url: "http://localhost:50795/reset.ashx?boardSize=" + newBoardSize + "&numberForWin=" + newNumberForWin,
     })
-    refreshGameModel = setInterval(getModel, 300);
 }
 function getModel() {
     $.ajax({
@@ -139,6 +146,22 @@ function refreshGame() {
     refreshWinPlayer();
 }
 function refreshBoardFromGameModel() {
+    if (boardSize != gameModel.BoardSize) {
+        boardSize = gameModel.BoardSize;
+        $("#board").html("");
+        var tableBoard = "";
+        for (var row = 1; row <= boardSize; row++) {
+            var tr = "<tr>";
+            for (var col = 1; col <= boardSize; col++) {
+                var td = "<td><div id='board" + row + "-" + col + "' class='boardCell' onclick='clickCell(" + row + "," + col + ")'></div></td>";
+                tr += td;
+            }
+            tr += "</tr>"
+            tableBoard += tr;
+        }
+        $("#board").html(tableBoard);
+        boardModel = new Array(boardSize * boardSize);
+    }
     boardModel = gameModel.Board;
     refreshBoard();
 }
@@ -148,8 +171,12 @@ function refreshPlayers() {
 }
 function refreshWinPlayer() {
     if (gameModel.WinPlayer != null) {
-        alert(lang("wonPlayer") + gameModel.WinPlayer + lang("Congratulations"));
-        clearInterval(refreshGameModel);
+        if (winAlerted == false) {
+            winAlerted = true;
+            alert(lang("wonPlayer") + gameModel.WinPlayer + lang("Congratulations"));
+        }       
+    } else {
+        winAlerted = false;
     }
 }
 function leftPlayerClick() {
@@ -173,7 +200,7 @@ function onRightPlayerSuccess(data) {
     alert(lang(data));
 }
 function clickCell(row, col) {
-    var index = (5 * (row - 1) + col);
+    var index = (boardSize * (row - 1) + col);
     $.ajax({
         url: "http://localhost:50795/playerClick.ashx?index=" + index + "&playerClick=" + loginUser,
         success: onPlayerClickSuccess,
@@ -186,17 +213,17 @@ function onPlayerClickSuccess(data) {
     }
 }
 function refreshBoard() {
-    for (row = 1 ; row <= 5 ; row++) {
-        for (col = 1 ; col <= 5 ; col++) {
-            var index = (5 * (row - 1) + col);
+    for (row = 1 ; row <= boardSize ; row++) {
+        for (col = 1 ; col <= boardSize ; col++) {
+            var index = (boardSize * (row - 1) + col);
             var color = boardModel[index - 1];
             if (color == "g") {
-                $("#board" + row + col).addClass("boardCellGreen");
+                $("#board" + row + "-"+ col).addClass("boardCellGreen");
             } else if (color == "o") {
-                $("#board" + row + col).addClass("boardCellOrange");
+                $("#board" + row + "-" + col).addClass("boardCellOrange");
             } else {
-                $("#board" + row + col).removeClass("boardCellGreen");
-                $("#board" + row + col).removeClass("boardCellOrange");
+                $("#board" + row + "-" + col).removeClass("boardCellGreen");
+                $("#board" + row + "-" + col).removeClass("boardCellOrange");
             }
         }
     }

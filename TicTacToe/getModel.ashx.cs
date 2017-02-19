@@ -18,6 +18,7 @@ namespace TicTacToe
             instancja.Lplayer = TicTacToeModel.LeftPlayer;
             instancja.Rplayer = TicTacToeModel.RightPlayer;
             instancja.LastClickPlayer = TicTacToeModel.LastClickPlayer;
+            instancja.BoardSize = TicTacToeModel.BoardSize;
 
             
 
@@ -42,213 +43,132 @@ namespace TicTacToe
             context.Response.Write(modelAsJson);
         }
 
-        
+
 
         public bool CheckPlayerWin(char colour)
-{
-    bool result = false;
-    int counter;
-    for (var row = 0; row <= 20; row += 5) //check rows
-    {
-        counter = 0;
-        for (var i = row; i <= row + 4; i++)
         {
-            if (TicTacToeModel.Model[i] == colour)
-            {
-                counter++;
-            }
-            else
+            bool result = false;
+            int counter;
+            var size = TicTacToeModel.BoardSize;
+            for (var i = 0; i < (size * size); i += size) //check rows
             {
                 counter = 0;
+                for (var j = i; j < (i + size); j++)
+                {
+                    if (TicTacToeModel.Model[j] == colour)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    if (counter == TicTacToeModel.NumberForWin)
+                    {
+                        result = true;
+                    }
+                }
             }
-            if (counter == 3)
-            {
-                result = true;
-            }
-        }
-    }
-    for (var col = 0; col <= 4; col++) //check columns
-    {
-        counter = 0;
-        for (var i = col; i <= 24; i += 5)
-        {
-            if (TicTacToeModel.Model[i] == colour)
-            {
-                counter++;
-            }
-            else
+            for (var i = 0; i < size; i++) //check columns
             {
                 counter = 0;
+                for (var j = i; j <= (size * (size - 1)) + i; j += size)
+                {
+                    if (TicTacToeModel.Model[j] == colour)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    if (counter == TicTacToeModel.NumberForWin)
+                    {
+                        result = true;
+                    }
+                }
             }
-            if (counter == 3)
-            {
-                result = true;
-            }
-        }
-    }
 
-    counter = 0;
-    for (var i = 10; i <= 22; i += 6) //check diagonals '\\\\\'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 5; i <= 23; i += 6) //check diagonals '\\\\\'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 0; i <= 24; i += 6) //check diagonals '\\\\\'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 1; i <= 19; i += 6) //check diagonals '\\\\\'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 2; i <= 14; i += 6) //check diagonals '\\\\\'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 2; i <= 10; i += 4) //check diagonals '/////'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 3; i <= 15; i += 4) //check diagonals '/////'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 4; i <= 20; i += 4) //check diagonals '/////'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 9; i <= 21; i += 4) //check diagonals '/////'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    counter = 0;
-    for (var i = 14; i <= 22; i += 4) //check diagonals '/////'
-    {
-        if (TicTacToeModel.Model[i] == colour)
-        {
-            counter++;
-        }
-        else
-        {
-            counter = 0;
-        }
-        if (counter == 3)
-        {
-            result = true;
-        }
-    }
-    return result;
+            for (var i = 0; i < size - 1; i++) //check diagonals \\\
+            {
+                counter = 0;
+                for (var j = i; j < (size * size) - (size * i); j += (size + 1))
+                {
+                    if (TicTacToeModel.Model[j] == colour)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    if (counter == TicTacToeModel.NumberForWin)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            for (var i = size; i <= (size * size) - size; i += size) //check diagonals\\\
+            {
+                counter = 0;
+                for (var j = i; j < size * size; j += (size + 1))
+                {
+                    if (TicTacToeModel.Model[j] == colour)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    if (counter == TicTacToeModel.NumberForWin)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            for (var i = 0; i < size; i++)
+            {
+                counter = 0;
+                for (var j = i; j <= i * size; j += (size - 1))
+                {
+                    if (TicTacToeModel.Model[j] == colour)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    if (counter == TicTacToeModel.NumberForWin)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            for (var i = (size * 2) - 1; i < size * size; i += size)
+            {
+                counter = 0;
+                for (var j = i; j < size * size; j += (size - 1))
+                {
+                    if (TicTacToeModel.Model[j] == colour)
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    if (counter == TicTacToeModel.NumberForWin)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            
+            return result;
 }
+
 
 public bool IsReusable
         {

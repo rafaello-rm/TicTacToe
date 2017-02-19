@@ -30,9 +30,11 @@
     <div id="logged">
         <p id="loggedUser">
         </p>
-        <p id="userLogged">
+        <p>
+            <label id="boardSizeLbl"> rozmiar planszy </label> <input id="boardSize" type="number" value="5" min="1" style="width: 3em;" >
+            <label id="numberForWinLbl"> liczba do wygranej </label> <input id="numberForWin" type="number" value="3" min="1" style="width: 3em;">
         </p>
-        <input id="logOutButton" type="button" value="wyloguj" onclick="logOut()" /> <input id="resetButton" type="button" value="rozpocznij/kasuj" onclick="resetButton()" />
+        <input id="logOutButton" type="button" value="wyloguj" onclick="logOut()" /> <input id="resetButton" type="button" value="rozpocznij/kasuj" onclick="resetBoard()" />
     </div>
     <div>
         <table>
@@ -44,41 +46,41 @@
                 </td>
                 <td>
                     <div class="board">
-                        <table>
+                        <table id="board">
                             <tr>
-                                <td> <div id="board11" class="boardCell" onclick="clickCell(1,1)"> </div> </td>
-                                <td> <div id="board12" class="boardCell" onclick="clickCell(1,2)"> </div> </td>
-                                <td> <div id="board13" class="boardCell" onclick="clickCell(1,3)"> </div> </td>
-                                <td> <div id="board14" class="boardCell" onclick="clickCell(1,4)"> </div> </td>
-                                <td> <div id="board15" class="boardCell" onclick="clickCell(1,5)"> </div> </td>
+                                <td> <div id="board1-1" class="boardCell" onclick="clickCell(1,1)"> </div> </td>
+                                <td> <div id="board1-2" class="boardCell" onclick="clickCell(1,2)"> </div> </td>
+                                <td> <div id="board1-3" class="boardCell" onclick="clickCell(1,3)"> </div> </td>
+                                <td> <div id="board1-4" class="boardCell" onclick="clickCell(1,4)"> </div> </td>
+                                <td> <div id="board1-5" class="boardCell" onclick="clickCell(1,5)"> </div> </td>
                             </tr>
                             <tr>
-                                <td> <div id="board21" class="boardCell" onclick="clickCell(2,1)"> </div> </td>
-                                <td> <div id="board22" class="boardCell" onclick="clickCell(2,2)"> </div> </td>
-                                <td> <div id="board23" class="boardCell" onclick="clickCell(2,3)"> </div> </td>
-                                <td> <div id="board24" class="boardCell" onclick="clickCell(2,4)"> </div> </td>
-                                <td> <div id="board25" class="boardCell" onclick="clickCell(2,5)"> </div> </td>
+                                <td> <div id="board2-1" class="boardCell" onclick="clickCell(2,1)"> </div> </td>
+                                <td> <div id="board2-2" class="boardCell" onclick="clickCell(2,2)"> </div> </td>
+                                <td> <div id="board2-3" class="boardCell" onclick="clickCell(2,3)"> </div> </td>
+                                <td> <div id="board2-4" class="boardCell" onclick="clickCell(2,4)"> </div> </td>
+                                <td> <div id="board2-5" class="boardCell" onclick="clickCell(2,5)"> </div> </td>
                             </tr>
                             <tr>
-                                <td> <div id="board31" class="boardCell" onclick="clickCell(3,1)"> </div> </td>
-                                <td> <div id="board32" class="boardCell" onclick="clickCell(3,2)"> </div> </td>
-                                <td> <div id="board33" class="boardCell" onclick="clickCell(3,3)"> </div> </td>
-                                <td> <div id="board34" class="boardCell" onclick="clickCell(3,4)"> </div> </td>
-                                <td> <div id="board35" class="boardCell" onclick="clickCell(3,5)"> </div> </td>
+                                <td> <div id="board3-1" class="boardCell" onclick="clickCell(3,1)"> </div> </td>
+                                <td> <div id="board3-2" class="boardCell" onclick="clickCell(3,2)"> </div> </td>
+                                <td> <div id="board3-3" class="boardCell" onclick="clickCell(3,3)"> </div> </td>
+                                <td> <div id="board3-4" class="boardCell" onclick="clickCell(3,4)"> </div> </td>
+                                <td> <div id="board3-5" class="boardCell" onclick="clickCell(3,5)"> </div> </td>
                             </tr>
                             <tr>
-                                <td> <div id="board41" class="boardCell" onclick="clickCell(4,1)"> </div> </td>
-                                <td> <div id="board42" class="boardCell" onclick="clickCell(4,2)"> </div> </td>
-                                <td> <div id="board43" class="boardCell" onclick="clickCell(4,3)"> </div> </td>
-                                <td> <div id="board44" class="boardCell" onclick="clickCell(4,4)"> </div> </td>
-                                <td> <div id="board45" class="boardCell" onclick="clickCell(4,5)"> </div> </td>
+                                <td> <div id="board4-1" class="boardCell" onclick="clickCell(4,1)"> </div> </td>
+                                <td> <div id="board4-2" class="boardCell" onclick="clickCell(4,2)"> </div> </td>
+                                <td> <div id="board4-3" class="boardCell" onclick="clickCell(4,3)"> </div> </td>
+                                <td> <div id="board4-4" class="boardCell" onclick="clickCell(4,4)"> </div> </td>
+                                <td> <div id="board4-5" class="boardCell" onclick="clickCell(4,5)"> </div> </td>
                             </tr>
                             <tr>
-                                <td> <div id="board51" class="boardCell" onclick="clickCell(5,1)"> </div> </td>
-                                <td> <div id="board52" class="boardCell" onclick="clickCell(5,2)"> </div> </td>
-                                <td> <div id="board53" class="boardCell" onclick="clickCell(5,3)"> </div> </td>
-                                <td> <div id="board54" class="boardCell" onclick="clickCell(5,4)"> </div> </td>
-                                <td> <div id="board55" class="boardCell" onclick="clickCell(5,5)"> </div> </td>
+                                <td> <div id="board5-1" class="boardCell" onclick="clickCell(5,1)"> </div> </td>
+                                <td> <div id="board5-2" class="boardCell" onclick="clickCell(5,2)"> </div> </td>
+                                <td> <div id="board5-3" class="boardCell" onclick="clickCell(5,3)"> </div> </td>
+                                <td> <div id="board5-4" class="boardCell" onclick="clickCell(5,4)"> </div> </td>
+                                <td> <div id="board5-5" class="boardCell" onclick="clickCell(5,5)"> </div> </td>
                             </tr>
                         </table>
                     </div>

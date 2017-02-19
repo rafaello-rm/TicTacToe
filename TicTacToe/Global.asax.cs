@@ -15,8 +15,10 @@ namespace TicTacToe
             TicTacToeModel.LeftPlayer = "";
             TicTacToeModel.RightPlayer = "";
             TicTacToeModel.LastClickPlayer = "";
+            TicTacToeModel.BoardSize = 5;
+            TicTacToeModel.NumberForWin = 3;
             TicTacToeModel.Model = new List<char>();
-            for (var i = 0; i < 25; i++)
+            for (var i = 0; i < TicTacToeModel.BoardSize * TicTacToeModel.BoardSize; i++)
             {
                 TicTacToeModel.Model.Add(' ');
             }

@@ -11,6 +11,7 @@ namespace TicTacToe
         public static string LeftPlayer { get; set; }
         public static string RightPlayer { get; set; }
         public static string LastClickPlayer { get; set; }
-
+        public static int BoardSize { get; set; }
+        public static int NumberForWin { get; set; }
     }
 }

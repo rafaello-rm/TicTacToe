@@ -13,9 +13,20 @@ namespace TicTacToe
 
         public void ProcessRequest(HttpContext context)
         {
-            for (var i = 0; i <= 24; i++)
+            var strBoardSize = context.Request.Params["boardSize"];
+            int boardSize;
+            int.TryParse(strBoardSize, out boardSize);
+            TicTacToeModel.BoardSize = boardSize;
+
+            var strNumberForWin = context.Request.Params["numberForWin"];
+            int numberForWin;
+            int.TryParse(strNumberForWin, out numberForWin);
+            TicTacToeModel.NumberForWin = numberForWin;
+
+            TicTacToeModel.Model = new List<char>();
+            for (var i = 0; i < boardSize * boardSize; i++)
             {
-                TicTacToeModel.Model[i] = ' ';
+                TicTacToeModel.Model.Add(' ');
             }
             TicTacToeModel.LastClickPlayer = "";
             context.Response.ContentType = "text/plain";
