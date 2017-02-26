@@ -150,7 +150,7 @@ namespace TicTacToe.service
 
             return this.gameModel;
         }
-        public bool CheckPlayerWin(char colour)
+        private bool CheckPlayerWin(char colour)
         {
             bool result = false;
             int counter;

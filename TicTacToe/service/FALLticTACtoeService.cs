@@ -5,7 +5,7 @@ using System.Web;
 
 namespace TicTacToe.service
 {
-    public class FallTicTacToeService
+    public class FallTicTacToeService: ITicTacToeService
     {
         private int numberForWin;
         private GameModel gameModel;
