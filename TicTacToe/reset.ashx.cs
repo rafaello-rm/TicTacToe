@@ -21,7 +21,7 @@ namespace TicTacToe
             int numberForWin;
             int.TryParse(strNumberForWin, out numberForWin);
 
-            TicTacToeModel.Service.Reset(boardSize, numberForWin);
+            TicTacToeModel.Service.GetGame(0).Reset(boardSize, numberForWin);
 
             context.Response.ContentType = "text/plain";
         }

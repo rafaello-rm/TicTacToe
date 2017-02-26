@@ -22,7 +22,7 @@ namespace TicTacToe
             int.TryParse(strCol, out intCol);
 
             var playerClick = context.Request.Params["playerClick"];
-            var response = TicTacToeModel.Service.MarkCell(playerClick, intRow, intCol);
+            var response = TicTacToeModel.Service.GetGame(0).MarkCell(playerClick, intRow, intCol);
             
 
             context.Response.ContentType = "text/plain";

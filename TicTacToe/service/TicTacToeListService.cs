@@ -12,7 +12,7 @@ namespace TicTacToe.service
         {
             ITicTacToeGameService service;
 
-            if (gameMode == "normal")
+            if (gameMode.ToUpper() == "NORMAL")
             {
                 service = new TicTacToeGameService();  
             }

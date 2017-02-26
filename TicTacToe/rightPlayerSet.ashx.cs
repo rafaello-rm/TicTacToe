@@ -13,7 +13,7 @@ namespace TicTacToe
 
         public void ProcessRequest(HttpContext context)
         {
-            var response = TicTacToeModel.Service.SetRightPlayer(context.Request.Params["rightPlayer"]);
+            var response = TicTacToeModel.Service.GetGame(0).SetRightPlayer(context.Request.Params["rightPlayer"]);
 
             context.Response.ContentType = "text/plain";
 

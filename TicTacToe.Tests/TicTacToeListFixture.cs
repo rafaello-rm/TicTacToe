@@ -31,7 +31,15 @@ namespace TicTacToe.Tests
             Assert.That(modelFromTestee, Is.Not.Null);
             Assert.That(modelFromTestee.Count, Is.EqualTo(1));
         }
-
+        [Test]
+        public void GetGame_Works()
+        {
+            testee.AddGame("Normal", "Rafał");
+            
+            var modelFromTestee = testee.GetGame(0);
+            Assert.That(modelFromTestee, Is.Not.Null);
+            Assert.That(modelFromTestee, Is.InstanceOf<TicTacToeGameService>());
+        }
 
         [TearDown]
         public void TearDown()
