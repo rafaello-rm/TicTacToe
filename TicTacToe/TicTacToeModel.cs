@@ -8,6 +8,6 @@ namespace TicTacToe
 {
     public class TicTacToeModel
     {
-        public static MainService Service { get; set; }
+        public static TicTacToeService Service { get; set; }
     }
 }

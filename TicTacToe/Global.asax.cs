@@ -12,7 +12,7 @@ namespace TicTacToe
 
         protected void Application_Start(object sender, EventArgs e)
         {            
-            TicTacToeModel.Service = new service.MainService();
+            TicTacToeModel.Service = new service.TicTacToeService();
         }
 
         protected void Session_Start(object sender, EventArgs e)

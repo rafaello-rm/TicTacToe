@@ -7,12 +7,12 @@ namespace TicTacToe.Tests
     [TestFixture]
     public class MainServiceFixture
     {
-        MainService testee;
+        TicTacToeService testee;
 
         [SetUp]
         public void SetUp()
         {
-            testee = new MainService();
+            testee = new TicTacToeService();
             testee.Reset(0, 0);
         }
 
@@ -91,7 +91,7 @@ namespace TicTacToe.Tests
 
         }
         [Test]
-        public void Mark_Cell_CheckWinPlayer_Works_2()
+        public void Mark_Cell_CheckWinPlayer_2_Works()
         {
             testee.Reset(5, 3);
             testee.SetLeftPlayer("Rafał");
