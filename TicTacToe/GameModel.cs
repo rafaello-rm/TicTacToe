@@ -14,4 +14,8 @@ namespace TicTacToe
         public string WinPlayer { get; set; }
         public int BoardSize { get; set; }
     }
+    //public GameModel()
+    //{
+
+    //}
 }

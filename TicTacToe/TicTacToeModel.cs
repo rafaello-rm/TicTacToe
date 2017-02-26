@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TicTacToe.service;
 using System.Linq;
 using System.Web;
 
@@ -7,11 +8,6 @@ namespace TicTacToe
 {
     public class TicTacToeModel
     {
-        public static List<char> Model { get; set; }
-        public static string LeftPlayer { get; set; }
-        public static string RightPlayer { get; set; }
-        public static string LastClickPlayer { get; set; }
-        public static int BoardSize { get; set; }
-        public static int NumberForWin { get; set; }
+        public static MainService Service { get; set; }
     }
 }

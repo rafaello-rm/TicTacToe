@@ -2,3 +2,10 @@
 2. opacja dwujęzyczna (komunikaty muszą być przechowywane w obiekcie i wołane w zależności od ustawionego języka)
 3. wybór ilości pól potrzebnych do zwycięstwa.
 4. ustalany rozmiar planszy.
+
+
+
+
+dodać error code do modelu(GameModel)
+obsłużyć po stronie klienckiej error code
+obsłużyć service (MainService)

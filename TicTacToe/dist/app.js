@@ -55,6 +55,7 @@ $(document).ready(function () {
     $("#logged").hide();
     $("#leftPlayerButton").attr("disabled", true);
     $("#rightPlayerButton").attr("disabled", true);
+    resetBoard();
     refreshGameModel = setInterval(getModel, 300);
     //setInterval(refreshBoardFromServer, 400);
     //setInterval(refreshPlayersFromServer, 400);
@@ -200,9 +201,8 @@ function onRightPlayerSuccess(data) {
     alert(lang(data));
 }
 function clickCell(row, col) {
-    var index = (boardSize * (row - 1) + col);
     $.ajax({
-        url: "http://localhost:50795/playerClick.ashx?index=" + index + "&playerClick=" + loginUser,
+        url: "http://localhost:50795/playerClick.ashx?row=" + row + "&col=" + col + "&playerClick=" + loginUser,
         success: onPlayerClickSuccess,
        
     })

@@ -11,17 +11,8 @@ namespace TicTacToe
     {
 
         protected void Application_Start(object sender, EventArgs e)
-        {
-            TicTacToeModel.LeftPlayer = "";
-            TicTacToeModel.RightPlayer = "";
-            TicTacToeModel.LastClickPlayer = "";
-            TicTacToeModel.BoardSize = 5;
-            TicTacToeModel.NumberForWin = 3;
-            TicTacToeModel.Model = new List<char>();
-            for (var i = 0; i < TicTacToeModel.BoardSize * TicTacToeModel.BoardSize; i++)
-            {
-                TicTacToeModel.Model.Add(' ');
-            }
+        {            
+            TicTacToeModel.Service = new service.MainService();
         }
 
         protected void Session_Start(object sender, EventArgs e)

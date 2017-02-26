@@ -13,18 +13,7 @@ namespace TicTacToe
 
         public void ProcessRequest(HttpContext context)
         {
-            var response = "";
-            if (TicTacToeModel.RightPlayer == "") {
-                if (context.Request.Params["rightPlayer"] == TicTacToeModel.LeftPlayer) {
-                    response = "YouAreGreen";
-                } else {
-                    TicTacToeModel.RightPlayer = context.Request.Params["rightPlayer"];
-                    response = "joinOrange";
-                }
-                
-            } else {
-                response = "colorBusy";
-            }
+            var response = TicTacToeModel.Service.SetRightPlayer(context.Request.Params["rightPlayer"]);
 
             context.Response.ContentType = "text/plain";
 
