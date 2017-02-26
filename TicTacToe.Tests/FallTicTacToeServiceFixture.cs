@@ -7,12 +7,12 @@ namespace TicTacToe.Tests
     [TestFixture]
     public class FallTicTacToeServiceFixture
     {
-        FallTicTacToeService testee;
+        FallTicTacToeGameService testee;
 
         [SetUp]
         public void SetUp()
         {
-            testee = new FallTicTacToeService();
+            testee = new FallTicTacToeGameService();
             testee.Reset(0, 0);
         }
 

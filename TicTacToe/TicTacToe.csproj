@@ -152,6 +152,7 @@
     </Compile>
     <Compile Include="service\FallTicTacToeService.cs" />
     <Compile Include="service\ITicTacToeService.cs" />
+    <Compile Include="service\TicTacToeListService.cs" />
     <Compile Include="service\TicTacToeService.cs" />
     <Compile Include="TicTacToeModel.cs" />
   </ItemGroup>

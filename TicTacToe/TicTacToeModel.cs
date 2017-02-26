@@ -8,6 +8,6 @@ namespace TicTacToe
 {
     public class TicTacToeModel
     {
-        public static ITicTacToeService Service { get; set; }
+        public static ITicTacToeGameService Service { get; set; }
     }
 }

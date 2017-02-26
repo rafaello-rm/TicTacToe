@@ -5,12 +5,12 @@ using System.Web;
 
 namespace TicTacToe.service
 {
-    public class FallTicTacToeService: ITicTacToeService
+    public class FallTicTacToeGameService: ITicTacToeGameService
     {
         private int numberForWin;
         private GameModel gameModel;
 
-        public FallTicTacToeService() {
+        public FallTicTacToeGameService() {
             this.numberForWin = -1;
             this.gameModel = new GameModel();
         }

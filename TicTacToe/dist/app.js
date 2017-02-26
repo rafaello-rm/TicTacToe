@@ -228,3 +228,6 @@ function refreshBoard() {
         }
     }
 }
+function AddGame(gameMode) {
+
+}

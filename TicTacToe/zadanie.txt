@@ -9,3 +9,6 @@
 dodać error code do modelu(GameModel)
 obsłużyć po stronie klienckiej error code
 obsłużyć service (MainService)
+
+
+Stworzyć nowy Service i określić wejścia wyjścia
