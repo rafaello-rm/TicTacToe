@@ -9,16 +9,19 @@ namespace TicTacToe.service
     public interface ITicTacToeGameService
     {
         void Reset(int boardSize, int numberForWin);
+        void RenewBoard();
         string MarkCell(string playerId, int row, int col);
         string SetLeftPlayer(string playerId);
         string SetRightPlayer(string playerId);
         GameModel GetModel();
+        
 
     }
     public interface ITicTacToeListService
     {
         void AddGame(string gameMode, string playerId);
-        IList<string> GetList();
+        void RemoveGame(int gameId);
+        IList<GameItemDto> GetList(string playerId);
         ITicTacToeGameService GetGame(int gameId);
 
     }

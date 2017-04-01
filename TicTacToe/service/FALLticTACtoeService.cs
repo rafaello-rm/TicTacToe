@@ -30,8 +30,15 @@ namespace TicTacToe.service
             this.gameModel.Lplayer = string.Empty;
             this.gameModel.Rplayer = string.Empty;
             this.gameModel.WinPlayer = string.Empty;
+        }
+        public void RenewBoard()
+        {
+            this.gameModel.Board = new List<char>();
 
-
+            for (var i = 0; i < this.gameModel.BoardSize * this.gameModel.BoardSize; i++)
+            {
+                gameModel.Board.Add(' ');
+            }
         }
         public string MarkCell(string playerId, int row, int col)
         {

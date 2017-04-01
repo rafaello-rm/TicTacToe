@@ -12,8 +12,12 @@ namespace TicTacToe
     {
 
         public void ProcessRequest(HttpContext context)
-        {          
-            var instancja = TicTacToeModel.Service.GetGame(0).GetModel();
+        {
+            var strIdGame = context.Request.Params["idGame"];
+            int idGame;
+            int.TryParse(strIdGame, out idGame);
+            var game = TicTacToeModel.Service.GetGame(idGame);
+            var instancja = game.GetModel();
             string modelAsJson = Newtonsoft.Json.JsonConvert.SerializeObject(instancja);
             context.Response.ContentType = "application/json";
             context.Response.Write(modelAsJson);

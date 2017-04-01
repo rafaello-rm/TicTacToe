@@ -41,6 +41,18 @@ namespace TicTacToe.Tests
             Assert.That(modelFromTestee, Is.InstanceOf<TicTacToeGameService>());
         }
 
+
+        [Test]
+        public void GetGame_GetSecondGame_Works()
+        {
+            testee.AddGame("Normal", "Rafał");
+            testee.AddGame("Fall", "Rafał");
+
+            var modelFromTestee = testee.GetGame(1);
+            Assert.That(modelFromTestee, Is.Not.Null);
+            Assert.That(modelFromTestee, Is.InstanceOf<FallTicTacToeGameService>());
+        }
+
         [TearDown]
         public void TearDown()
         {

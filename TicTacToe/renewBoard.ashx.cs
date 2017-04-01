@@ -6,23 +6,19 @@ using System.Web;
 namespace TicTacToe
 {
     /// <summary>
-    /// Summary description for rightPlayerSet
+    /// Summary description for renewBoard
     /// </summary>
-    public class rightPlayerSet : IHttpHandler
+    public class renewBoard : IHttpHandler
     {
 
         public void ProcessRequest(HttpContext context)
         {
-            var strIdGame = context.Request.Params["idGame"];
+            var strIdGame = context.Request.Params["idToRenew"];
             int idGame;
             int.TryParse(strIdGame, out idGame);
-
-            var response = TicTacToeModel.Service.GetGame(idGame).SetRightPlayer(context.Request.Params["rightPlayer"]);
-
-            context.Response.ContentType = "text/plain";
-
-            context.Response.Write(response);
+            TicTacToeModel.Service.GetGame(idGame).RenewBoard();
         }
+
         public bool IsReusable
         {
             get

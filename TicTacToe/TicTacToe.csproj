@@ -110,6 +110,10 @@
     <Content Include="rightPlayerSet.ashx" />
     <Content Include="reset.ashx" />
     <Content Include="getModel.ashx" />
+    <Content Include="addGame.ashx" />
+    <Content Include="getListGame.ashx" />
+    <Content Include="removeGame.ashx" />
+    <Content Include="renewBoard.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,7 +131,13 @@
     <Content Include="zadanie.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addGame.ashx.cs">
+      <DependentUpon>addGame.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GameModel.cs" />
+    <Compile Include="getListGame.ashx.cs">
+      <DependentUpon>getListGame.ashx</DependentUpon>
+    </Compile>
     <Compile Include="getModel.ashx.cs">
       <DependentUpon>getModel.ashx</DependentUpon>
     </Compile>
@@ -144,6 +154,12 @@
       <DependentUpon>playerClick.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="removeGame.ashx.cs">
+      <DependentUpon>removeGame.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="renewBoard.ashx.cs">
+      <DependentUpon>renewBoard.ashx</DependentUpon>
+    </Compile>
     <Compile Include="reset.ashx.cs">
       <DependentUpon>reset.ashx</DependentUpon>
     </Compile>
@@ -152,6 +168,7 @@
     </Compile>
     <Compile Include="service\FallTicTacToeService.cs" />
     <Compile Include="service\ITicTacToeService.cs" />
+    <Compile Include="service\RandomTicTacToeService.cs" />
     <Compile Include="service\TicTacToeListService.cs" />
     <Compile Include="service\TicTacToeService.cs" />
     <Compile Include="TicTacToeModel.cs" />

@@ -21,7 +21,11 @@ namespace TicTacToe
             int numberForWin;
             int.TryParse(strNumberForWin, out numberForWin);
 
-            TicTacToeModel.Service.GetGame(0).Reset(boardSize, numberForWin);
+            var strIdGame = context.Request.Params["idGame"];
+            int idGame;
+            int.TryParse(strIdGame, out idGame);
+
+            TicTacToeModel.Service.GetGame(idGame).Reset(boardSize, numberForWin);
 
             context.Response.ContentType = "text/plain";
         }

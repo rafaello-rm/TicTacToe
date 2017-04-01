@@ -11,4 +11,20 @@ obsłużyć po stronie klienckiej error code
 obsłużyć service (MainService)
 
 
-Stworzyć nowy Service i określić wejścia wyjścia
+Metoda z nazwą gry (do interfejsu i implementacji czyli czarnych skrzynek od gier)
+dodawanie i lista gier w html'u
+modyfikacja handlerów aby działały na wybranej grze
+oznaczyć wybraną grę (domyślnie pierwsza gra zaznaczona)
+
+
+
+
+12.03.2017
+lista obok planszy
+kasowanie gier
+kasować może tylko autory
+po zwycięstwie okienko czy chcesz zacząć nową grę. Jak nie, to gra się kasuje (metoda confirm() w JS)
+obok nazwy gry - obaj gracze i rozmiar plansz
+oddzielny handler dla pobierania listy gier i wolniej go wywoływać
+
+Stworzyć nową grę: Po zaznaczeniu komórki gra ma sama wylosować dwie inne komórki i zaznaczyć na kolor gracza.

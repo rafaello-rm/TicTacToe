@@ -15,7 +15,7 @@
     margin-bottom: 0px;
 }
 .player {
-    width: 200px;
+    width: 120px;
     border: solid 1px;
 }
 .leftPlayerButton {
@@ -39,4 +39,29 @@
 }
 .boardCellOrange {
     background-color: darkorange;
+}
+.buttonGameSet {
+    color: limegreen;
+    width: 127px;
+}
+.buttonGame {
+    width: 127px;
+}
+
+#gameList {
+    float:left;
+    width:40%;
+}
+#gameBoard {
+    float:left;
+    width:60%;
+}
+.floatfix {
+    zoom:1; /* dla IE < 8 */
+}
+
+.floatfix:after {
+    content:'';
+    display:block;
+    clear:both;
 }

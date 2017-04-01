@@ -5,18 +5,20 @@ using System.Web;
 
 namespace TicTacToe.service
 {
-    public class TicTacToeGameService: ITicTacToeGameService
+    public class RandomTicTacToeGameService: ITicTacToeGameService
     {
         private int numberForWin;
         private GameModel gameModel;
 
-        public TicTacToeGameService() {
+        public RandomTicTacToeGameService()
+        {
             this.numberForWin = -1;
             this.gameModel = new GameModel();
         }
 
 
-        public void Reset(int boardSize, int numberForWin) {
+        public void Reset(int boardSize, int numberForWin)
+        {
             this.numberForWin = numberForWin;
             this.gameModel.Board = new List<char>();
 
@@ -42,7 +44,7 @@ namespace TicTacToe.service
         }
         public string MarkCell(string playerId, int row, int col)
         {
-            
+
             int index = (this.gameModel.BoardSize * (row - 1) + col);
             if (playerId == "")
             {
@@ -69,6 +71,7 @@ namespace TicTacToe.service
                         else
                         {
                             this.gameModel.Board[index - 1] = 'g';
+                            RandomMarkCell('g');
                             this.gameModel.LastClickPlayer = playerId;
                         }
                     }
@@ -89,12 +92,30 @@ namespace TicTacToe.service
                         else
                         {
                             this.gameModel.Board[index - 1] = 'o';
-                            this.gameModel.LastClickPlayer = playerId;   
+                            RandomMarkCell('o');
+                            this.gameModel.LastClickPlayer = playerId;
                         }
                     }
                 }
             }
             return "";
+        }
+
+        private void RandomMarkCell (char colour)
+        {
+            Random rnd = new Random();
+            int rndIndex1 = rnd.Next(0, this.gameModel.BoardSize * this.gameModel.BoardSize);
+            int rndIndex2 = rnd.Next(0, this.gameModel.BoardSize * this.gameModel.BoardSize);
+
+            if (this.gameModel.Board[rndIndex1] == ' ')
+            {
+                this.gameModel.Board[rndIndex1] = colour;
+            }
+            if (this.gameModel.Board[rndIndex2] == ' ')
+            {
+                this.gameModel.Board[rndIndex2] = colour;
+            }
+
         }
 
         public string SetLeftPlayer(string playerId)
@@ -103,7 +124,7 @@ namespace TicTacToe.service
             {
                 if (playerId == this.gameModel.Rplayer)
                 {
-                    return  "YouAreOrange";
+                    return "YouAreOrange";
                 }
                 else
                 {
@@ -151,7 +172,7 @@ namespace TicTacToe.service
             {
                 this.gameModel.WinPlayer = null;
             }
-            
+
 
 
 
