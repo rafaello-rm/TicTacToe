@@ -13,7 +13,8 @@ namespace TicTacToe
         protected void Application_Start(object sender, EventArgs e)
         {            
             TicTacToeModel.Service = new service.TicTacToeListService();
-            TicTacToeModel.Service.AddGame("normal", string.Empty);
+            //TicTacToeModel.Service.AddGame("normal", string.Empty);
+            TicTacToeModel.Service.OpenGameData();
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -28,3 +28,7 @@ obok nazwy gry - obaj gracze i rozmiar plansz
 oddzielny handler dla pobierania listy gier i wolniej go wywoływać
 
 Stworzyć nową grę: Po zaznaczeniu komórki gra ma sama wylosować dwie inne komórki i zaznaczyć na kolor gracza.
+
+2.04.2017
+ Zapisywac i odczytywaćdo stanu gry Gospodarza(ownerId)
+ Usunąć duplikację kodu w serwisach z grami (Stworzyć klasę bazową i dziedziczyć po niej)

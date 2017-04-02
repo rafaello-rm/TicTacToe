@@ -167,6 +167,7 @@
       <DependentUpon>rightPlayerSet.ashx</DependentUpon>
     </Compile>
     <Compile Include="service\FallTicTacToeService.cs" />
+    <Compile Include="service\GameData.cs" />
     <Compile Include="service\ITicTacToeService.cs" />
     <Compile Include="service\RandomTicTacToeService.cs" />
     <Compile Include="service\TicTacToeListService.cs" />

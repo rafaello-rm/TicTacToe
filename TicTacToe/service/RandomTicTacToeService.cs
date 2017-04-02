@@ -9,6 +9,7 @@ namespace TicTacToe.service
     {
         private int numberForWin;
         private GameModel gameModel;
+        private string gameMode = "random";
 
         public RandomTicTacToeGameService()
         {
@@ -16,7 +17,16 @@ namespace TicTacToe.service
             this.gameModel = new GameModel();
         }
 
-
+        public GameData GetGameData()
+        {
+            GameData gameData = new GameData(gameModel, numberForWin, gameMode);
+            return gameData;
+        }
+        public void SetGameData(GameData gameData)
+        {
+            numberForWin = gameData.NumberForWin;
+            gameModel = gameData.GameModel;
+        }
         public void Reset(int boardSize, int numberForWin)
         {
             this.numberForWin = numberForWin;
