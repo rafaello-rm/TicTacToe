@@ -20,5 +20,6 @@ namespace TicTacToe.service
         public GameModel GameModel { get; set; }
         public int NumberForWin { get; set; }
         public string GameMode { get; set; }
+        public string OwnerId { get; set; }
     }
 }

@@ -67,7 +67,7 @@ $(document).ready(function () {
     $("#logged").hide();
     $("#leftPlayerButton").attr("disabled", true);
     $("#rightPlayerButton").attr("disabled", true);
-    resetBoard();
+    //resetBoard();
     refreshGameModel = setInterval(getModel, 300);
     refreshListGame = setInterval(getList, 1000);
     //setInterval(refreshBoardFromServer, 400);

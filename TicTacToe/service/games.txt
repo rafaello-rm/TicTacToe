@@ -3,7 +3,6 @@
   <GameData>
     <GameModel>
       <Board>
-        <char>103</char>
         <char>32</char>
         <char>32</char>
         <char>32</char>
@@ -26,58 +25,34 @@
         <char>32</char>
         <char>32</char>
         <char>32</char>
-        <char>32</char>
-        <char>32</char>
-      </Board>
-      <Lplayer>nika</Lplayer>
-      <Rplayer />
-      <LastClickPlayer>nika</LastClickPlayer>
-      <BoardSize>5</BoardSize>
-    </GameModel>
-    <NumberForWin>3</NumberForWin>
-    <GameMode>normal</GameMode>
-  </GameData>
-  <GameData>
-    <GameModel>
-      <Board>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>103</char>
         <char>32</char>
         <char>32</char>
         <char>32</char>
       </Board>
-      <Lplayer>nika</Lplayer>
+      <Lplayer />
       <Rplayer />
-      <LastClickPlayer>nika</LastClickPlayer>
+      <LastClickPlayer />
       <BoardSize>5</BoardSize>
     </GameModel>
     <NumberForWin>3</NumberForWin>
     <GameMode>fall</GameMode>
+    <OwnerId>nika</OwnerId>
   </GameData>
   <GameData>
     <GameModel>
       <Board>
         <char>103</char>
+        <char>32</char>
+        <char>103</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
         <char>103</char>
         <char>32</char>
         <char>32</char>
@@ -86,17 +61,6 @@
         <char>32</char>
         <char>32</char>
         <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>103</char>
         <char>32</char>
         <char>32</char>
         <char>32</char>
@@ -104,36 +68,75 @@
         <char>32</char>
       </Board>
       <Lplayer>nika</Lplayer>
-      <Rplayer />
+      <Rplayer>aga</Rplayer>
+      <LastClickPlayer>aga</LastClickPlayer>
+      <BoardSize>5</BoardSize>
+    </GameModel>
+    <NumberForWin>3</NumberForWin>
+    <GameMode>random</GameMode>
+    <OwnerId>aga</OwnerId>
+  </GameData>
+  <GameData>
+    <GameModel>
+      <Board>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>103</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>103</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>103</char>
+        <char>32</char>
+        <char>32</char>
+      </Board>
+      <Lplayer>nika</Lplayer>
+      <Rplayer>aga</Rplayer>
       <LastClickPlayer>nika</LastClickPlayer>
       <BoardSize>5</BoardSize>
     </GameModel>
     <NumberForWin>3</NumberForWin>
     <GameMode>random</GameMode>
+    <OwnerId>aga</OwnerId>
   </GameData>
   <GameData>
     <GameModel>
       <Board>
         <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
-        <char>32</char>
         <char>103</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
         <char>32</char>
         <char>32</char>
         <char>32</char>
@@ -141,12 +144,13 @@
         <char>32</char>
       </Board>
       <Lplayer>nika</Lplayer>
-      <Rplayer />
-      <LastClickPlayer>nika</LastClickPlayer>
+      <Rplayer>aga</Rplayer>
+      <LastClickPlayer>aga</LastClickPlayer>
       <BoardSize>5</BoardSize>
     </GameModel>
     <NumberForWin>3</NumberForWin>
     <GameMode>normal</GameMode>
+    <OwnerId>aga</OwnerId>
   </GameData>
   <GameData>
     <GameModel>
@@ -184,6 +188,7 @@
       <BoardSize>5</BoardSize>
     </GameModel>
     <NumberForWin>3</NumberForWin>
-    <GameMode>random</GameMode>
+    <GameMode>normal</GameMode>
+    <OwnerId>nika</OwnerId>
   </GameData>
 </ArrayOfGameData>

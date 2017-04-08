@@ -79,6 +79,7 @@ namespace TicTacToe.service
             for (var i = 0; i < gameList.Count; i++)
             {
                 var gameData = gameList[i].Game.GetGameData();
+                gameData.OwnerId = gameList[i].OwnerId;
                 listGameData.Add(gameData);
             }
             XmlSerializer serializer = new XmlSerializer(listGameData.GetType());
@@ -139,7 +140,7 @@ namespace TicTacToe.service
         }
         public void CreateService(GameData gameData)
         {
-            CreateService(gameData.GameMode, string.Empty);
+            CreateService(gameData.GameMode, gameData.OwnerId);
         }
     }
 
