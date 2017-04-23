@@ -182,7 +182,7 @@ function refreshGameList() {
     divGameList.html("");
     divGameList.append("<p> <label id='gameListLbl'>" + lang('gameList') + "</label> </p>")
     for (i = 0; i < gameList.length; i++) {
-        if (gameList[i].LeftPlayer == "") {
+        if (gameList[i].LeftPlayer == "") { 
             var lPlayerOnList = lang("free");
         } else {
             var lPlayerOnList = gameList[i].LeftPlayer;

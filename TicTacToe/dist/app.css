@@ -53,7 +53,7 @@
     width:40%;
 }
 #gameBoard {
-    float:left;
+    float:right;
     width:60%;
 }
 .floatfix {

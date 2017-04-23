@@ -24,14 +24,14 @@
         <char>32</char>
         <char>32</char>
         <char>32</char>
+        <char>103</char>
         <char>32</char>
-        <char>32</char>
-        <char>32</char>
+        <char>111</char>
         <char>32</char>
       </Board>
-      <Lplayer />
-      <Rplayer />
-      <LastClickPlayer />
+      <Lplayer>nika</Lplayer>
+      <Rplayer>aga</Rplayer>
+      <LastClickPlayer>aga</LastClickPlayer>
       <BoardSize>5</BoardSize>
     </GameModel>
     <NumberForWin>3</NumberForWin>
@@ -151,6 +151,44 @@
     <NumberForWin>3</NumberForWin>
     <GameMode>normal</GameMode>
     <OwnerId>aga</OwnerId>
+  </GameData>
+  <GameData>
+    <GameModel>
+      <Board>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>103</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>103</char>
+        <char>32</char>
+        <char>111</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+      </Board>
+      <Lplayer>nika</Lplayer>
+      <Rplayer>aga</Rplayer>
+      <LastClickPlayer>aga</LastClickPlayer>
+      <BoardSize>5</BoardSize>
+    </GameModel>
+    <NumberForWin>3</NumberForWin>
+    <GameMode>normal</GameMode>
+    <OwnerId>nika</OwnerId>
   </GameData>
   <GameData>
     <GameModel>
