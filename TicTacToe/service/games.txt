@@ -222,11 +222,49 @@
       <Lplayer />
       <Rplayer />
       <LastClickPlayer />
-      <WinPlayer />
       <BoardSize>5</BoardSize>
     </GameModel>
     <NumberForWin>3</NumberForWin>
     <GameMode>normal</GameMode>
     <OwnerId>nika</OwnerId>
+  </GameData>
+  <GameData>
+    <GameModel>
+      <Board>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+        <char>32</char>
+      </Board>
+      <Lplayer />
+      <Rplayer />
+      <LastClickPlayer />
+      <WinPlayer />
+      <BoardSize>5</BoardSize>
+    </GameModel>
+    <NumberForWin>3</NumberForWin>
+    <GameMode>normal</GameMode>
+    <OwnerId>aga</OwnerId>
   </GameData>
 </ArrayOfGameData>
